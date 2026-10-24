@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11100e">
+  <meta name="description" content="Discover beautiful wigs, bundles, weaves and hair care at Crowned Hair Boutique.">
+  <title>Crowned Hair Boutique | Beauty Begins Here</title>
+
+  <style>
+    :root {
+      --black: #11100e;
+      --dark: #1b1916;
+      --gold: #d6b477;
+      --cream: #f8f4ec;
+      --white: #ffffff;
+      --muted: #aaa39a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .announcement {
+      background: var(--gold);
+      color: var(--black);
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .brand small {
+      display: block;
+      color: #ddd5c9;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(17,16,14,.96), rgba(17,16,14,.72)),
+        url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85")
+        center 35% / cover;
+      color: var(--white);
+      padding: 85px 7%;
+      min-height: 410px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 570px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 7vw, 66px);
+      line-height: 1.08;
+      margin: 16px 0;
+      font-weight: normal;
+    }
+
+    .hero p {
+      max-width: 450px;
+      color: #e3ddd5;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 21px;
+      background: var(--gold);
+      color: var(--black);
+      border: 1px solid var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .5px;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--gold);
+      margin-left: 8px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #e9e1d3;
+      padding: 22px 5%;
+      text-align: center;
+      gap: 15px;
+    }
+
+    .feature strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 15px;
+    }
+
+    .feature span {
+      color: #696158;
+      font-size: 11px;
+    }
+
+    section {
+      padding: 65px 6%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 30px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 5vw, 39px);
+      font-weight: normal;
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      color: #6d665d;
+      font-size: 13px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .filter {
+      border: 1px solid #c8beae;
+      background: transparent;
+      color: var(--black);
+      padding: 9px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+    }
+
+    .filter.active,
+    .filter:hover {
+      background: var(--black);
+      color: var(--gold);
+      border-color: var(--black);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .product {
+      background: var(--white);
+      border: 1px solid #eee7dc;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    .product img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      display: block;
+      background: #e8dfd3;
+    }
+
+    .product-info {
+      padding: 17px;
+    }
+
+    .tag {
+      color: #8c6c34;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 9px;
+      font-weight: bold;
+    }
+
+    .product h3 {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-weight: normal;
+      margin: 5px 0;
+    }
+
+    .product p {
+      color: #777067;
+      font-size: 12px;
+      min-height: 38px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #8c6c34;
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 13px;
+    }
+
+    .product .button {
+      width: 100%;
+      text-align: center;
+    }
+
+    .promo {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 52px 6%;
+    }
+
+    .promo h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(27px, 5vw, 40px);
+      font-weight: normal;
+      margin: 8px 0;
+    }
+
+    .promo p {
+      color: #d4ccc1;
+      font-size: 13px;
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      background: #eee6da;
+    }
+
+    .about img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .about h2 {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      line-height: 1.2;
+      font-weight: normal;
+      margin: 10px 0 16px;
+    }
+
+    .about p {
+      font-size: 13px;
+      color: #625b52;
+      margin-bottom: 20px;
+    }
+
+    .contact {
+      text-align: center;
+      background: var(--white);
+    }
+
+    .contact-box {
+      max-width: 620px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #e5dac8;
+    }
+
+    .contact-box h2 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      font-weight: normal;
+      margin: 8px 0;
+    }
+
+    .contact-box p {
+      color: #6d665d;
+      font-size: 13px;
+      margin: 8px 0 20px;
+    }
+
+    footer {
+      background: var(--black);
+      color: #c9c1b5;
+      text-align: center;
+      padding: 28px 15px;
+      font-size: 11px;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .demo-note {
+      color: #8c8478;
+      font-size: 10px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 390px;
+        padding: 65px 7%;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .product img {
+        height: 180px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product h3 {
+        font-size: 16px;
+      }
+
+      .product p {
+        font-size: 11px;
+      }
+
+      .features {
+        padding: 20px 3%;
+        gap: 8px;
+      }
+
+      .feature strong {
+        font-size: 12px;
+      }
+
+      .feature span {
+        font-size: 10px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .about img {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product img {
+        height: 240px;
+      }
+
+      .button-outline {
+        margin: 10px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    YOUR CROWN. YOUR BEAUTY. YOUR CONFIDENCE.
+  </div>
+
+  <header>
+    <a href="#home" class="brand">
+      CROWNED HAIR
+      <small>BOUTIQUE</small>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#offers">Offers</a>
+      <a href="#about">Our Story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">Beauty in every strand</span>
+        <h1>Your Hair.<br>Your Crown.</h1>
+        <p>
+          Discover beautiful wigs, stylish bundles and hair essentials
+          selected to help you express your unique style.
+        </p>
+        <a class="button" href="#shop">EXPLORE COLLECTION</a>
+        <a class="button button-outline" href="#contact">CONTACT US</a>
+      </div>
+    </section>
+
+    <div class="features">
+      <div class="feature">
+        <strong>Beautiful Styles</strong>
+        <span>Find your signature look</span>
+      </div>
+      <div class="feature">
+        <strong>Personal Service</strong>
+        <span>Get help choosing your style</span>
+      </div>
+      <div class="feature">
+        <strong>Easy Enquiries</strong>
+        <span>Chat with us on WhatsApp</span>
+      </div>
+    </div>
+
+    <section id="shop">
+      <div class="section-heading">
+        <span class="eyebrow">The collection</span>
+        <h2>Find Your Perfect Look</h2>
+        <p>
+          Explore our sample collection of wigs, bundles and hair care.
+          Contact us to ask about availability.
+        </p>
+      </div>
+
+      <div class="categories">
+        <button class="filter active" data-filter="all">All Products</button>
+        <button class="filter" data-filter="wigs">Wigs</button>
+        <button class="filter" data-filter="bundles">Bundles</button>
+        <button class="filter" data-filter="care">Hair Care</button>
+      </div>
+
+      <div class="products">
+        <article class="product" data-category="wigs">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80"
+               alt="Model wearing a stylish hairstyle" loading="lazy">
+          <div class="product-info">
+            <span class="tag">Wigs</span>
+            <h3>Classic Beauty Wig</h3>
+            <p>A versatile style for everyday confidence.</p>
+            <div class="price">R850</div>
+            <a class="button order-button" href="#contact"
+               data-product="Classic Beauty Wig">ENQUIRE NOW</a>
+          </div>
+        </article>
+
+        <article class="product" data-category="wigs">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80"
+               alt="Beauty portrait for wig inspiration" loading="lazy">
+          <div class="product-info">
+            <span class="tag">Wigs</span>
+            <h3>Glamour Wave Wig</h3>
+            <p>A glamorous look for special occasions.</p>
+            <div class="price">R1,200</div>
+            <a class="button order-button" href="#contact"
+               data-product="Glamour Wave Wig">ENQUIRE NOW</a>
+          </div>
+        </article>
+
+        <article class="product" data-category="bundles">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80"
+               alt="Fashion and hairstyle inspiration" loading="lazy">
+          <div class="product-info">
+            <span class="tag">Bundles</span>
+            <h3>Silky Straight Bundle</h3>
+            <p>A sleek, smooth look for your next style.</p>
+            <div class="price">R450</div>
+            <a class="button order-button" href="#contact"
+               data-product="Silky Straight Bundle">ENQUIRE NOW</a>
+          </div>
+        </article>
+
+        <article class="product" data-category="bundles">
+          <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=700&q=80"
+               alt="Hair and beauty style inspiration" loading="lazy">
+          <div class="product-info">
+            <span class="tag">Bundles</span>
+            <h3>Curly Volume Bundle</h3>
+            <p>Bring texture and volume to your look.</p>
+            <div class="price">R550</div>
+            <a class="button order-button" href="#contact"
+               data-product="Curly Volume Bundle">ENQUIRE NOW</a>
+          </div>
+        </article>
+
+        <article class="product" data-category="care">
+          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80"
+               alt="Beauty and hair care product inspiration" loading="lazy">
+          <div class="product-info">
+            <span class="tag">Hair Care</span>
+            <h3>Daily Care Essentials</h3>
+            <p>Everyday essentials for your hair care routine.</p>
+            <div class="price">From R120</div>
+            <a class="button order-button" href="#contact"
+               data-product="Daily Care Essentials">ENQUIRE NOW</a>
+          </div>
+        </article>
+
+        <article class="product" data-category="care">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80"
+               alt="Beauty products display" loading="lazy">
+          <div class="product-info">
+            <span class="tag">Hair Care</span>
+            <h3>Beauty Care Set</h3>
+            <p>A sample selection of beauty essentials.</p>
+            <div class="price">R250</div>
+            <a class="button order-button" href="#contact"
+               data-product="Beauty Care Set">ENQUIRE NOW</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="demo-note" style="text-align:center">
+        Demonstration catalogue: products, prices and availability are examples only.
+      </p>
+    </section>
+
+    <section class="promo" id="offers">
+      <span class="eyebrow">Your next look awaits</span>
+      <h2>Ready for a New Look?</h2>
+      <p>
+        Tell us what style you're looking for. Contact us to discuss
+        product options, prices and availability.
+      </p>
+      <a class="button" href="#contact">ASK ABOUT OUR COLLECTION</a>
+    </section>
+
+    <section class="about" id="about">
+      <img
+        src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=85"
+        alt="Beauty and hair fashion inspiration"
+        loading="lazy">
+
+      <div>
+        <span class="eyebrow">Welcome to Crowned</span>
+        <h2>Beauty That Feels Like You.</h2>
+        <p>
+          Crowned Hair Boutique is a fictional business created by
+          Nexora Digital to demonstrate how a hair and beauty business
+          can present its products online.
+        </p>
+        <p>
+          A real business can customise this section with its story,
+          product range, customer reviews and brand identity.
+        </p>
+        <a class="button" href="#shop">VIEW THE COLLECTION</a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-box">
+        <span class="eyebrow">Let's talk hair</span>
+        <h2>Need Help Choosing?</h2>
+        <p>
+          Contact us to ask about a product, check availability or
+          discuss your next look.
+        </p>
+        <a class="button" id="whatsapp-button"
+           href="https://wa.me/27000000000"
+           target="_blank" rel="noopener">
+          CHAT ON WHATSAPP
+        </a>
+        <p class="demo-note">
+          Demo only. The WhatsApp number must be replaced before use.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Crowned Hair Boutique</strong>
+    Your Hair. Your Crown. Your Confidence.
+    <p style="margin-top:8px">Website concept by Nexora Digital</p>
+    <p class="demo-note" style="color:#aaa39a">
+      Fictional business demonstration. Sample products and prices only.
+    </p>
+  </footer>
+
+  <script>
+    // Product category filters
+    const filterButtons = document.querySelectorAll(".filter");
+    const products = document.querySelectorAll(".product");
+
+    filterButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        filterButtons.forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const selectedCategory = button.dataset.filter;
+
+        products.forEach(function(product) {
+          const matches =
+            selectedCategory === "all" ||
+            product.dataset.category === selectedCategory;
+
+          product.style.display = matches ? "" : "none";
+        });
+      });
+    });
+
+    // Demo WhatsApp ordering
+    // Replace this placeholder with the real business number before launch.
+    const DEMO_WHATSAPP_NUMBER = "27000000000";
+    const whatsappButton = document.getElementById("whatsapp-button");
+
+    function setWhatsAppLink(message) {
+      whatsappButton.href =
+        "https://wa.me/" + DEMO_WHATSAPP_NUMBER +
+        "?text=" + encodeURIComponent(message);
+    }
+
+    setWhatsAppLink(
+      "Hi, I'm enquiring about products from Crowned Hair Boutique."
+    );
+
+    document.querySelectorAll(".order-button").forEach(function(button) {
+      button.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const productName = button.dataset.product;
+
+        const message =
+          "Hi, I'm enquiring about " + productName +
+          " from Crowned Hair Boutique. Please share more information.";
+
+        setWhatsAppLink(message);
+
+        document.getElementById("contact").scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
+          </html>
